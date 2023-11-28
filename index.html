@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社員情報システム</title>
+    <style>
+        th {
+            background-color: lightblue;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th @click="sortTable('id')">ID</th>
+                    <th @click="sortTable('name')">名前</th>
+                    <th @click="sortTable('company')">会社名</th>
+                    <th @click="sortTable('division')">部署</th>
+                    <th @click="sortTable('title')">役職</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="coData in sortedData" :key="coData.id">
+                    <td>{{ coData.id }}</td>
+                    <td>{{ coData.name }}</td>
+                    <td>{{ coData.company }}</td>
+                    <td>{{ coData.division }}</td>
+                    <td>{{ coData.title }}</td>
+                </tr>
+            </tbody>
+        </table>
+    <div>
+        <h2>新規情報追加</h2>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
